@@ -1,0 +1,101 @@
+/* Colors
+0d1317
+101d42
+232ed1
+6564db
+89d2dc
+<uniquifier>: Use a unique and descriptive class name
+<weight>: Use a value from 300 to 700
+
+.comfortaa-<uniquifier> {
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+}
+*/
+
+body {
+  background-color: #101d42;
+  color: #b100c9;
+  font-family: "Comfortaa", sans-serif;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  color: #89d2dc;
+}
+.nav-link:hover {
+  color: #b100c9;
+}
+.current {
+  border-bottom: 1px solid #b100c9;
+}
+#nav-img {
+  vertical-align: middle;
+  font-size: 2rem;
+  color: #b100c9;
+}
+#nav-icon p {
+  color: #b100c9;
+  font-weight: 700;
+  font-size: 1.7rem;
+  display: inline;
+  vertical-align: middle;
+}
+#card-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h3 {
+  text-align: center;
+}
+#url-input::placeholder {
+  color: #aaa6a6;
+  font-size: 1.2rem;
+}
+#url-input {
+  font-family: sans-serif;
+  height: 3rem;
+  color: #ffffff;
+  width: 100%;
+  outline: none;
+  border-radius: 15px;
+  padding-left: 10px;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+}
+#url-input:focus {
+  background-color: rgba(37, 37, 37, 0.5);
+}
+.card-form h3 {
+  font-weight: 700;
+}
+.card-form {
+  text-align: left;
+  background-color: #0d1317;
+  margin: 3rem auto;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 5px rgba(13, 19, 23, 0.5);
+  max-width: 500px;
+  width: 100%;
+}
+.submit-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
+#submit-btn {
+  background-color: transparent;
+  border: 1px solid #b100c9;
+  color: #b100c9;
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: 7rem;
+}
+#submit-btn:hover {
+  color: #0d1317;
+  background-color: #b100c9;
+}

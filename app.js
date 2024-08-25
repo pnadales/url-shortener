@@ -1,11 +1,14 @@
 import express from "express";
 import { linksRouter } from "./routes/links.js";
 import { userRouter } from "./routes/user.js";
+import { corsMiddleware } from "./middelwares/cors.js";
+
 import dotenv from "dotenv";
 dotenv.config();
 const PORT = process.env.PORT ?? 4321;
 
 const app = express();
+app.use(corsMiddleware());
 app.use(express.json());
 app.disable("x-powered-by");
 

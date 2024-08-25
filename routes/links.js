@@ -8,6 +8,6 @@ linksRouter.get("/", (req, res) => {
   res.sendStatus;
 });
 
-linksRouter.post("/", LinkController.newUrl);
+linksRouter.post("/new", LinkController.newUrl);
 linksRouter.get("/:url", LinkController.redirectUrl);
 linksRouter.delete("/", LinkController.deleteUrl);
