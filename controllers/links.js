@@ -1,13 +1,7 @@
 import { DBModel } from "../model/Postgre/DB_queries.js";
-// const { v4: uuidv4 } = require("uuid");
 import { v4 as uuidv4 } from "uuid";
-function shortUrl(req) {
-  const host = req.get("host"); // Nombre de dominio o IP y puerto
-  const url = `${host}/link/${uuidv4().slice(0, 8)}`;
-  return url;
-}
 
-export class Controller {
+export class LinkController {
   static async newUrl(req, res) {
     try {
       const { url } = req.body;

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { Controller } from "../controllers/links.js";
+import { LinkController } from "../controllers/links.js";
 
 export const linksRouter = Router();
 
@@ -8,6 +8,6 @@ linksRouter.get("/", (req, res) => {
   res.sendStatus;
 });
 
-linksRouter.post("/", Controller.newUrl);
-linksRouter.get("/:url", Controller.redirectUrl);
-linksRouter.delete("/", Controller.deleteUrl);
+linksRouter.post("/", LinkController.newUrl);
+linksRouter.get("/:url", LinkController.redirectUrl);
+linksRouter.delete("/", LinkController.deleteUrl);

@@ -1,5 +1,6 @@
 import express from "express";
 import { linksRouter } from "./routes/links.js";
+import { userRouter } from "./routes/user.js";
 import dotenv from "dotenv";
 dotenv.config();
 const PORT = process.env.PORT ?? 4321;
@@ -9,6 +10,7 @@ app.use(express.json());
 app.disable("x-powered-by");
 
 app.use("/link", linksRouter);
+app.use("/user", userRouter);
 
 app.get("/", (req, res) => {
   const protocol = req.protocol; // http o https
