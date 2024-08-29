@@ -1,0 +1,107 @@
+<header>
+  <div id="card-form-container">
+    <div class="card-form">
+      <h3 class="py-3">Regístrate</h3>
+      <form
+        id="newUser-form"
+        action="http://localhost:3000/link/new"
+        method="POST"
+      >
+        <label for="Username" class="register-label">Ingresa tu nombre de
+          usuario:</label>
+        <input
+          type="text"
+          name="Username"
+          id="user-input"
+          title="Ingresa username"
+          placeholder="Nombre de usuario"
+          required
+          class="input-text"
+        />
+        <label for="password" class="register-label">Ingresa tu clave:</label>
+        <p class="password-error d-none">¡Las claves deben coincidir!</p>
+        <input
+          type="password"
+          name="password"
+          id="password-input"
+          title="Ingresa tu clave"
+          placeholder="Clave"
+          required
+        />
+        <label for="password" class="register-label">Repite tu clave:</label>
+        <p class="password-error d-none">¡Las claves deben coincidir!</p>
+        <input
+          type="password"
+          name="password"
+          id="password-input-2"
+          title="Repite tu clave"
+          placeholder="Clave"
+          required
+        />
+        <div class="form-check form-switch pt-3">
+          <input
+            class="form-check-input my-switch"
+            type="checkbox"
+            role="switch"
+            id="See-password"
+          />
+          <label class="form-check-label" for="See-password">Ver clave</label>
+        </div>
+
+        <div class="submit-container">
+          <input
+            type="submit"
+            value="Registrarse"
+            class="btn"
+            id="submit-btn"
+          />
+        </div>
+        <div id="loading" class="submit-container d-none">
+          <i
+            class="fa-solid fa-spinner fa-spin fs-5"
+            style="color: #89d2dc"
+          ></i>
+        </div>
+      </form>
+    </div>
+  </div>
+  {{! Modal }}
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+  >
+    Launch demo modal
+  </button>
+  <div
+    class="modal fade"
+    id="Register-modal"
+    tabindex="-1"
+    aria-labelledby="ModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center">
+          <h1 class="modal-title fs-5" id="ModalLabel">
+            ¡Felicidades!
+          </h1>
+        </div>
+        <div class="modal-body">
+          <p id="MiniLink">Tu usuario ha sido creado exitosamente.</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          {{! <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+          </button> }}
+          <a href="/Ingresar" class="btn modal-btn">Inisiar seción</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/register.js"></script>

@@ -21,10 +21,11 @@ export class DBModel {
   }
   static async getUser(userName) {
     const query = {
-      text: `SELECT * FROM users WHERE username=${userName}`,
+      text: `SELECT * FROM users WHERE username=$1`,
+      values: [userName],
     };
     const result = await pool.query(query);
-    return result.rows;
+    return result.rows[0];
   }
 
   static async putUser(data) {
@@ -54,10 +55,17 @@ export class DBModel {
     return result.rows;
   }
   static async getUrl(url) {
-    console.log("url db" + url);
     const query = {
       text: `SELECT * FROM urls WHERE short_url=$1`,
       values: [url],
+    };
+    const result = await pool.query(query);
+    return result.rows;
+  }
+  static async getUrlsByUser(user) {
+    const query = {
+      text: "SELECT * FROM urls WHERE user_id=$1",
+      values: [user],
     };
     const result = await pool.query(query);
     return result.rows;
@@ -71,6 +79,15 @@ export class DBModel {
     const result = await pool.query(query);
     return result;
   }
+  static async UpdateViews(url) {
+    const query = {
+      text: "UPDATE urls SET  visit_counter= visit_counter+1 WHERE short_url=$1 RETURNING *",
+      values: [url],
+    };
+    const result = await pool.query(query);
+    return result;
+  }
+
   static async deleteUrl(url) {
     const query = {
       text: `DELETE FROM urls WHERE short_url=$1 RETURNING *`,

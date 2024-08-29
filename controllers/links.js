@@ -18,7 +18,7 @@ export class LinkController {
     try {
       const shortUrl = req.params.url;
       const urlData = await DBModel.getUrl(shortUrl);
-      console.log(urlData[0]);
+      const resultViews = await DBModel.UpdateViews(shortUrl);
 
       res.redirect(urlData[0].original_url);
     } catch (error) {
@@ -33,5 +33,13 @@ export class LinkController {
     } catch (error) {
       console.log(error);
     }
+  }
+  static async urlsByUser(req, res) {
+    const { user } = req.session;
+    if (!user) {
+      return res.status(403).send("Acceso no permitido");
+    }
+    const result = await DBModel.getUrlsByUser(user.id);
+    res.json({ result });
   }
 }

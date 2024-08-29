@@ -1,0 +1,67 @@
+<header>
+  <div id="card-form-container">
+    <div class="card-form">
+      <h3 class="py-3">INGRESA LA URL</h3>
+      <form
+        id="newLink-form"
+        action="http://localhost:3000/link/new"
+        method="POST"
+      >
+        <input
+          type="url"
+          name="url"
+          id="url-input"
+          title="Ingresa URL"
+          placeholder="URL"
+          required
+          class="input-text"
+        />
+
+        <div class="submit-container">
+          <input type="submit" value="Go!" class="btn" id="submit-btn" />
+        </div>
+        <div id="loading" class="submit-container d-none">
+          <i
+            class="fa-solid fa-spinner fa-spin fs-5"
+            style="color: #89d2dc"
+          ></i>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="Url-modal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center">
+          <h1 class="modal-title fs-5" id="ModalLabel">
+            Este es tu MiniLink
+          </h1>
+        </div>
+        <div class="modal-body">
+          <p id="MiniLink">Si ves esto es un problema</p>
+          <button id="copy" title="¡Link Copiado!">
+            <i class="fa-solid fa-copy"></i>
+          </button>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/home.js"></script>

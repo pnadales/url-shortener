@@ -20,7 +20,12 @@ body {
   color: #b100c9;
   font-family: "Comfortaa", sans-serif;
 }
-
+.navbar-toggler {
+  border-color: #b100c9;
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(177, 0, 201, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
 .nav-link {
   font-size: 1.2rem;
   color: #89d2dc;
@@ -47,6 +52,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.disabled {
+  color: #8989dc !important;
 }
 h3 {
   text-align: center;
@@ -121,7 +129,7 @@ input:not([type="checkbox"]) {
   background-color: transparent;
   color: #b100c9;
   border-color: #b100c9;
-  background-image: url(circle-solid.svg) !important;
+  background-image: url(../img/circle-solid.svg) !important;
   background-size: 10px 10px;
 }
 .my-switch::after {
@@ -175,13 +183,15 @@ button {
   color: #0d1317;
   background-color: #89d2dc;
 }
-.modal-footer button {
+.modal-footer button,
+.modal-btn {
   font-weight: 600;
   color: #89d2dc;
   background-color: transparent;
   border: 1px solid #89d2dc;
 }
-.modal-footer button:hover {
+.modal-footer button:hover,
+.modal-btn:hover {
   color: #0d1317;
   background-color: #89d2dc;
 }
