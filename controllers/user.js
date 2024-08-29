@@ -19,6 +19,9 @@ export class UserController {
       const { username, password } = req.body;
 
       const data = await DBModel.getUser(username);
+      if (!data) {
+        return res.sendStatus(403);
+      }
       const auth = await bcrypt.compare(password, data.password);
 
       // console.log(hashedPassword + " " + data.password);
@@ -52,9 +55,19 @@ export class UserController {
       );
       const data = [username, hashedPassword];
       const result = await DBModel.postUser(data);
-      res.json(result);
+      res.json({
+        status: 200,
+        message: "Usuario registrado con éxito",
+      });
     } catch (error) {
-      console.log(error);
+      if (error.code == 23505) {
+        res.status(409).json({
+          status: 409,
+          message: "El usuario ya existe",
+        });
+      } else {
+        console.log(error.code);
+      }
     }
   }
   static async dashboard(req, res) {
@@ -63,7 +76,6 @@ export class UserController {
       return res.status(403).send("Acceso no permitido");
     }
     const UserLinks = await DBModel.getUrlsByUser(user.id);
-    console.log("estos son: " + UserLinks[0]);
     res.render("user", {
       layout: "dashboard",
       title: "Registrarse",

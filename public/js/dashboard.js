@@ -65,7 +65,67 @@ copyBtn.addEventListener("click", function () {
     .then(() => {
       copyTooltip.show();
     })
+
     .catch((error) => {
       console.log("error portapapeles", error);
     });
+});
+const modalBtn = document.getElementById("modal-btn");
+modalBtn.addEventListener("click", function () {
+  window.location.href = "/user/dashboard";
+});
+
+const host = `${window.location.hostname}:3000`;
+// const shortUrl = `${host}/link/${data[2]}`;
+
+const shortUrls = document.querySelectorAll(".short-url");
+shortUrls.forEach((url) => {
+  url.textContent = `${host}/link/${url.textContent}`;
+  url.href = url.textContent;
+});
+
+const tableCopyBtn = document.querySelectorAll(".copybtn");
+tableCopyBtn.forEach((btn) => {
+  const tcopyTooltip = new bootstrap.Tooltip(btn, {
+    trigger: "manual",
+  });
+  btn.addEventListener("click", function () {
+    // const copyUrl = document.getElementById("MiniLink").textContent;
+    const link = `${host}/link/${btn.dataset.link}`;
+    navigator.clipboard
+      .writeText(link)
+      .then(() => {
+        tcopyTooltip.show();
+      })
+
+      .catch((error) => {
+        console.log("error portapapeles", error);
+      });
+  });
+});
+
+const deleteBtns = document.querySelectorAll(".delete-btn");
+deleteBtns.forEach((btn) => {
+  btn.addEventListener("click", function () {
+    const url = btn.dataset.link;
+    fetch("/link/delete", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ url }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          console.log(response.text);
+        }
+      })
+      .then((data) => {
+        console.log("eliminado");
+        window.location.href = "/user/dashboard";
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
 });

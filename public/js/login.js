@@ -34,6 +34,8 @@ registerForm.addEventListener("submit", function (event) {
     .then((response) => {
       spinner.classList.add("d-none");
       if (!response.ok) {
+        let modal = new bootstrap.Modal(document.getElementById("Login-modal"));
+        modal.show();
         throw new Error("Error en la solicitud: " + response.statusText);
       }
       return response.json();

@@ -17,6 +17,7 @@ export class DBModel {
       values: data,
     };
     const result = await pool.query(query);
+
     return result;
   }
   static async getUser(userName) {
@@ -64,7 +65,7 @@ export class DBModel {
   }
   static async getUrlsByUser(user) {
     const query = {
-      text: "SELECT * FROM urls WHERE user_id=$1",
+      text: "SELECT * FROM urls WHERE user_id=$1 ORDER BY id",
       values: [user],
     };
     const result = await pool.query(query);

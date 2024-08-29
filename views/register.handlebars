@@ -9,6 +9,7 @@
       >
         <label for="Username" class="register-label">Ingresa tu nombre de
           usuario:</label>
+        <p class="user-error d-none">¡Este usuario ya existe!</p>
         <input
           type="text"
           name="Username"
@@ -66,14 +67,7 @@
     </div>
   </div>
   {{! Modal }}
-  <button
-    type="button"
-    class="btn btn-primary"
-    data-bs-toggle="modal"
-    data-bs-target="#exampleModal"
-  >
-    Launch demo modal
-  </button>
+
   <div
     class="modal fade"
     id="Register-modal"

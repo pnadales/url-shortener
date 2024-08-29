@@ -24,6 +24,7 @@ registerForm.addEventListener("submit", function (event) {
   const password1 = document.getElementById("password-input");
   const password2 = document.getElementById("password-input-2");
   const ErrorMessage = document.querySelectorAll(".password-error");
+  const userError = document.querySelector(".user-error");
   if (password1.value == password2.value) {
     const spinner = document.getElementById("loading");
     spinner.classList.remove("d-none");
@@ -42,25 +43,35 @@ registerForm.addEventListener("submit", function (event) {
     })
       .then((response) => {
         spinner.classList.add("d-none");
+        console.log(response.status);
         if (!response.ok) {
-          throw new Error("Error en la solicitud: " + response.statusText);
+          if (response.status == 409) {
+            console.log("no entiendo");
+            userError.classList.remove("d-none");
+          } else {
+            throw new Error("Error en la solicitud: " + response.statusText);
+          }
         }
         return response.json();
       })
       .then((data) => {
-        usernameInput.value = "";
-        password1.value = "";
-        password2.value = "";
-        let modal = new bootstrap.Modal(
-          document.getElementById("Register-modal")
-        );
-        modal.show();
+        console.log(data);
+        if (data.status == 200) {
+          userError.classList.add("d-none");
+          usernameInput.value = "";
+          password1.value = "";
+          password2.value = "";
+          let modal = new bootstrap.Modal(
+            document.getElementById("Register-modal")
+          );
+          modal.show();
+        }
       })
       .catch((error) => {
-        console.log(error);
+        console.log("Error: " + error);
       });
   } else {
-    password.style.border = "1px solid red";
+    password1.style.border = "1px solid red";
     password2.style.border = "1px solid red";
     ErrorMessage.forEach((p) => {
       p.classList.remove("d-none");

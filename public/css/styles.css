@@ -78,7 +78,8 @@ input:not([type="checkbox"]) {
   padding-top: 1.5rem;
   padding-bottom: 0.5rem;
 }
-#newUser-form input:not([type="checkbox"]) {
+#newUser-form input:not([type="checkbox"]),
+#login-form input:not([type="checkbox"]) {
   height: 2.5rem;
   font-size: 1.2rem;
 }
@@ -118,7 +119,8 @@ input:not([type="checkbox"]) {
 #newLink-form #submit-btn {
   width: 7rem;
 }
-#newUser-form #submit-btn {
+#newUser-form #submit-btn,
+#login-form #submit-btn {
   width: 10rem;
 }
 #submit-btn:hover {
@@ -140,7 +142,8 @@ input:not([type="checkbox"]) {
   border-color: #b100c9;
   background-color: transparent;
 }
-.password-error {
+.password-error,
+.user-error {
   color: red;
   font-size: 0.8rem;
   margin-bottom: 0;

@@ -56,6 +56,9 @@ body {
 .disabled {
   color: #8989dc !important;
 }
+h1 {
+  text-align: center;
+}
 h3 {
   text-align: center;
 }
@@ -208,4 +211,78 @@ button {
   border: 1px solid #89d2dc;
   color: #89d2dc;
   background-color: transparent;
+}
+.table {
+  width: 100%;
+  table-layout: auto;
+}
+th {
+  background-color: #0d1317 !important;
+  height: 4rem;
+  color: #b100c9 !important;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.2rem;
+  word-wrap: break-word !important;
+  /* width: 100%; */
+}
+.td-views,
+.td-copy,
+.td-delete,
+.td-n {
+  text-align: center;
+}
+.th-none {
+  display: contents;
+}
+@media (max-width: 575px) {
+  .th-none {
+    display: none;
+  }
+  #copy-none {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="%23b100c9" d="M208 0L332.1 0c12.7 0 24.9 5.1 33.9 14.1l67.9 67.9c9 9 14.1 21.2 14.1 33.9L448 336c0 26.5-21.5 48-48 48l-192 0c-26.5 0-48-21.5-48-48l0-288c0-26.5 21.5-48 48-48zM48 128l80 0 0 64-64 0 0 256 192 0 0-32 64 0 0 48c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 176c0-26.5 21.5-48 48-48z"/></svg>');
+    background-size: 1.2rem; /* Ajusta el tamaño del SVG dentro del contenedor */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center;
+  }
+  #delete-none {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="%23b100c9" d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0L284.2 0c12.1 0 23.2 6.8 28.6 17.7L320 32l96 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 96C14.3 96 0 81.7 0 64S14.3 32 32 32l96 0 7.2-14.3zM32 128l384 0 0 320c0 35.3-28.7 64-64 64L96 512c-35.3 0-64-28.7-64-64l0-320zm96 64c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16z"/></svg>');
+    background-size: 1.2rem; /* Ajusta el tamaño del SVG dentro del contenedor */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center;
+  }
+}
+/* {
+  display: none;
+} */
+
+td {
+  /* width: 100%; */
+  /* background-color: rgba(13, 19, 23, 0.8) !important; */
+  background-color: transparent !important;
+  word-wrap: break-word !important;
+  vertical-align: middle;
+}
+.td-original a,
+.td-short a {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #101d42;
+  word-break: break-all;
+  /* word-wrap: break-word; */
+  white-space: normal;
+  /* Asegúrate de que no haya margen excesivo */
+  /* display: inline; */
+}
+td button i {
+  font-size: 1.2rem;
+  color: #0d1317;
+}
+tr {
+  background-color: #6564db;
+  transition: background-color 0.3s ease;
+}
+tr:hover {
+  background-color: #89d2dc;
 }
