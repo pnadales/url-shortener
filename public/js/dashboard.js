@@ -81,7 +81,7 @@ const host = window.location.hostname;
 const shortUrls = document.querySelectorAll(".short-url");
 shortUrls.forEach((url) => {
   url.textContent = `${host}/link/${url.textContent}`;
-  url.href = url.textContent;
+  url.href = `https://${url.textContent}`;
 });
 
 const tableCopyBtn = document.querySelectorAll(".copybtn");
