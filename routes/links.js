@@ -11,4 +11,4 @@ linksRouter.get("/", (req, res) => {
 linksRouter.post("/new", LinkController.newUrl);
 linksRouter.get("/:url", LinkController.redirectUrl);
 linksRouter.delete("/delete", LinkController.deleteUrl);
-linksRouter.get("/byuser", LinkController.urlsByUser);
+// linksRouter.get("/byuser", LinkController.urlsByUser);

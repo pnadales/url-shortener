@@ -27,7 +27,7 @@ export class UserController {
       // console.log(hashedPassword + " " + data.password);
       if (auth) {
         const token = jwt.sign(
-          { id: data.id, username: username },
+          { id: data.id, username: username, role: data.role },
           process.env.JWT_KEY,
           { expiresIn: "1h" }
         );
@@ -75,13 +75,25 @@ export class UserController {
     if (!user) {
       return res.status(403).send("Acceso no permitido");
     }
-    const UserLinks = await DBModel.getUrlsByUser(user.id);
-    res.render("user", {
+    let UserLinks;
+    let render;
+    let Users;
+    if (user.role === "admin") {
+      UserLinks = await DBModel.getAllUrl();
+      render = "admin";
+      Users = await DBModel.getAllUser();
+    } else {
+      UserLinks = await DBModel.getUrlsByUser(user.id);
+      render = "user";
+    }
+
+    res.render(render, {
       layout: "dashboard",
       title: "Registrarse",
       username: user.username,
       id: user.id,
       Links: UserLinks,
+      Users: Users,
     });
   }
   static async logout(req, res) {

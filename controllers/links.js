@@ -26,6 +26,13 @@ export class LinkController {
     }
   }
   static async deleteUrl(req, res) {
+    const { user } = req.session;
+    if (!user) {
+      return res.status(403).json({
+        status: 403,
+        message: "No tienes permiso para realizar esta acción.",
+      });
+    }
     try {
       const { url } = req.body;
       await DBModel.deleteUrl(url);
