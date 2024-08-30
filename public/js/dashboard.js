@@ -75,7 +75,7 @@ modalBtn.addEventListener("click", function () {
   window.location.href = "/user/dashboard";
 });
 
-const host = `${window.location.hostname}:3000`;
+const host = window.location.hostname;
 // const shortUrl = `${host}/link/${data[2]}`;
 
 const shortUrls = document.querySelectorAll(".short-url");
