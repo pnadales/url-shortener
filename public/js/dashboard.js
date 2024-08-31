@@ -42,7 +42,7 @@ linkForm.addEventListener("submit", function (event) {
     })
     .then((data) => {
       urlInput.value = "";
-      const host = `${window.location.hostname}:3000`;
+      const host = window.location.hostname;
       const shortUrl = `${host}/link/${data[2]}`;
       const showUrl = document.getElementById("MiniLink");
       showUrl.innerHTML = shortUrl;
